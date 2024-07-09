@@ -1,3 +1,3 @@
-My personal neovim config
+My neovim config!
 
-Might document later :3
+May document later, this is only public for funsies.
