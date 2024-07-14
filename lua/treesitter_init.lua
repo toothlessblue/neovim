@@ -1,12 +1,10 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "javascript", "typescript", "cpp", "lua" },
+  ensure_installed = { "javascript", "typescript", "cpp", "lua", "glsl" },
   sync_install = false,
   auto_install = true,
   ignore_install = { },
   highlight = {
     enable = true,
-
-    disable = { "rust" },
 
     disable = function(lang, buf)
         local max_filesize = 100 * 1024 -- 100 KB

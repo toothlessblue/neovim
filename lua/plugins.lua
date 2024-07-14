@@ -29,4 +29,17 @@ return require('packer').startup(function(use)
       'nvim-tree/nvim-web-devicons', -- optional
     },
   }
+  use({
+    "Pocco81/auto-save.nvim",
+    config = function()
+        require("auto-save").setup({
+
+        })
+    end,
+  })
+  use({
+    "tikhomirov/vim-glsl"
+  })
 end)
+
+

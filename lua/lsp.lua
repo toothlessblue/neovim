@@ -30,6 +30,7 @@ lsp.format_on_save({
         insertFinalNewline = true,
     },
     servers = {
+        ['glsl_analyzer'] = {'frag', 'vert'},
         ['clangd'] = {'cpp', 'hpp'},
         ['tsserver'] = {'javascript', 'typescript'}
     }
@@ -46,12 +47,30 @@ cmp.setup({
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
+    'glsl_analyzer',
     'tsserver',
     'clangd',
+    'lua_ls',
   },
   handlers = {
     function(server_name)
-      require('lspconfig')[server_name].setup({})
+        require('lspconfig')[server_name].setup({})
+    end,
+    ['tsserver'] = function()
+        local format = {
+            semicolons = 'insert';
+        }
+
+        require('lspconfig')['tsserver'].setup({
+            settings = {
+                javascript = {
+                    format = format,
+                },
+                typescript = {
+                    format = format,
+                }
+            }
+        })
     end,
   },
 })

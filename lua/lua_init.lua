@@ -3,6 +3,7 @@ require('mapping')
 require('treesitter_init')
 require('lsp')
 require('nvim_tree')
+require('quick_fix')
 
 vim.opt.number = true
 vim.opt.relativenumber = true
