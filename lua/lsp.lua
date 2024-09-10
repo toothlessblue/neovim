@@ -38,12 +38,6 @@ lsp.format_on_save({
 
 lsp.setup()
 
-local cmp = require('cmp')
-
-cmp.setup({
-
-})
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -51,6 +45,8 @@ require('mason-lspconfig').setup({
     'tsserver',
     'clangd',
     'lua_ls',
+    'cssls',
+    'jsonls',
   },
   handlers = {
     function(server_name)

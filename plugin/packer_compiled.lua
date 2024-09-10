@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/toothless/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?.lua;/home/toothless/.cache/nvim/packer_hererocks/2.1.1716656478/share/lua/5.1/?/init.lua;/home/toothless/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?.lua;/home/toothless/.cache/nvim/packer_hererocks/2.1.1716656478/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/toothless/.cache/nvim/packer_hererocks/2.1.1716656478/lib/lua/5.1/?.so"
+local package_path_str = "/home/toothless/.cache/nvim/packer_hererocks/2.1.1720049189/share/lua/5.1/?.lua;/home/toothless/.cache/nvim/packer_hererocks/2.1.1720049189/share/lua/5.1/?/init.lua;/home/toothless/.cache/nvim/packer_hererocks/2.1.1720049189/lib/luarocks/rocks-5.1/?.lua;/home/toothless/.cache/nvim/packer_hererocks/2.1.1720049189/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/toothless/.cache/nvim/packer_hererocks/2.1.1720049189/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -90,6 +90,11 @@ _G.packer_plugins = {
     path = "/home/toothless/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/toothless/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/home/toothless/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",
@@ -106,6 +111,7 @@ _G.packer_plugins = {
     url = "https://github.com/williamboman/mason.nvim"
   },
   ["nvim-cmp"] = {
+    config = { "\27LJ\2\nv\0\0\3\1\4\0\14-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\5€-\0\0\0009\0\1\0005\2\2\0B\0\2\1X\0\3€-\0\0\0009\0\3\0B\0\1\1K\0\1\0\0À\rcomplete\1\0\1\rbehavior\vinsert\21select_prev_item\fvisiblev\0\0\3\1\4\0\14-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\5€-\0\0\0009\0\1\0005\2\2\0B\0\2\1X\0\3€-\0\0\0009\0\3\0B\0\1\1K\0\1\0\0À\rcomplete\1\0\1\rbehavior\vinsert\21select_next_item\fvisibleC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequireÎ\4\1\0\b\0\31\00056\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0B\1\2\0019\1\5\0005\3\b\0004\4\3\0005\5\6\0>\5\1\0045\5\a\0>\5\2\4=\4\t\0035\4\r\0009\5\n\0009\5\v\0055\a\f\0B\5\2\2=\5\14\0049\5\n\0009\5\15\5B\5\1\2=\5\16\0049\5\n\0009\5\17\0055\a\18\0B\5\2\2=\5\19\0049\5\n\0009\5\20\0055\a\21\0B\5\2\2=\5\22\0049\5\n\0003\a\23\0B\5\2\2=\5\24\0049\5\n\0003\a\25\0B\5\2\2=\5\26\4=\4\n\0035\4\28\0003\5\27\0=\5\29\4=\4\30\3B\1\2\0012\0\0€K\0\1\0\fsnippet\vexpand\1\0\1\vexpand\0\0\n<C-n>\0\n<C-p>\0\v<Down>\1\0\1\rbehavior\vselect\21select_next_item\t<Up>\1\0\1\rbehavior\vselect\21select_prev_item\n<C-e>\nabort\n<C-y>\1\0\6\t<Up>\0\n<C-n>\0\n<C-e>\0\n<C-p>\0\n<C-y>\0\v<Down>\0\1\0\1\vselect\1\fconfirm\fmapping\fsources\1\0\3\fsnippet\0\fmapping\0\fsources\0\1\0\1\tname\rnvim_lsp\1\0\1\tname\fluasnip\nsetup\1\0\1\npaths ~/.config/nvim/lua/snippets\tload\29luasnip.loaders.from_lua\bcmp\frequire\0" },
     loaded = true,
     path = "/home/toothless/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
@@ -158,6 +164,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: nvim-cmp
+time([[Config for nvim-cmp]], true)
+try_loadstring("\27LJ\2\nv\0\0\3\1\4\0\14-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\5€-\0\0\0009\0\1\0005\2\2\0B\0\2\1X\0\3€-\0\0\0009\0\3\0B\0\1\1K\0\1\0\0À\rcomplete\1\0\1\rbehavior\vinsert\21select_prev_item\fvisiblev\0\0\3\1\4\0\14-\0\0\0009\0\0\0B\0\1\2\15\0\0\0X\1\5€-\0\0\0009\0\1\0005\2\2\0B\0\2\1X\0\3€-\0\0\0009\0\3\0B\0\1\1K\0\1\0\0À\rcomplete\1\0\1\rbehavior\vinsert\21select_next_item\fvisibleC\0\1\4\0\4\0\a6\1\0\0'\3\1\0B\1\2\0029\1\2\0019\3\3\0B\1\2\1K\0\1\0\tbody\15lsp_expand\fluasnip\frequireÎ\4\1\0\b\0\31\00056\0\0\0'\2\1\0B\0\2\0026\1\0\0'\3\2\0B\1\2\0029\1\3\0015\3\4\0B\1\2\0019\1\5\0005\3\b\0004\4\3\0005\5\6\0>\5\1\0045\5\a\0>\5\2\4=\4\t\0035\4\r\0009\5\n\0009\5\v\0055\a\f\0B\5\2\2=\5\14\0049\5\n\0009\5\15\5B\5\1\2=\5\16\0049\5\n\0009\5\17\0055\a\18\0B\5\2\2=\5\19\0049\5\n\0009\5\20\0055\a\21\0B\5\2\2=\5\22\0049\5\n\0003\a\23\0B\5\2\2=\5\24\0049\5\n\0003\a\25\0B\5\2\2=\5\26\4=\4\n\0035\4\28\0003\5\27\0=\5\29\4=\4\30\3B\1\2\0012\0\0€K\0\1\0\fsnippet\vexpand\1\0\1\vexpand\0\0\n<C-n>\0\n<C-p>\0\v<Down>\1\0\1\rbehavior\vselect\21select_next_item\t<Up>\1\0\1\rbehavior\vselect\21select_prev_item\n<C-e>\nabort\n<C-y>\1\0\6\t<Up>\0\n<C-n>\0\n<C-e>\0\n<C-p>\0\n<C-y>\0\v<Down>\0\1\0\1\vselect\1\fconfirm\fmapping\fsources\1\0\3\fsnippet\0\fmapping\0\fsources\0\1\0\1\tname\rnvim_lsp\1\0\1\tname\fluasnip\nsetup\1\0\1\npaths ~/.config/nvim/lua/snippets\tload\29luasnip.loaders.from_lua\bcmp\frequire\0", "config", "nvim-cmp")
+time([[Config for nvim-cmp]], false)
 -- Config for: auto-save.nvim
 time([[Config for auto-save.nvim]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14auto-save\frequire\0", "config", "auto-save.nvim")

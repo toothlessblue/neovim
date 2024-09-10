@@ -18,3 +18,4 @@ vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 
 vim.diagnostic.config({update_in_insert = true})
+
