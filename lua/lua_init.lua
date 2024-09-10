@@ -1,3 +1,5 @@
+vim.env.PRETTIERD_DEFAULT_CONFIG = '/home/toothless/.config/nvim/prettierd.json'
+
 require('plugins')
 require('mapping')
 require('treesitter_init')
@@ -17,5 +19,4 @@ vim.opt.hlsearch = true
 vim.opt.shiftwidth = 4
 vim.opt.smarttab = true
 
-vim.diagnostic.config({update_in_insert = true})
-
+vim.diagnostic.config({ update_in_insert = true })

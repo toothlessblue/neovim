@@ -42,31 +42,17 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
     'glsl_analyzer',
-    'tsserver',
+    'ts_ls',
     'clangd',
     'lua_ls',
     'cssls',
     'jsonls',
+    'custom_elements_ls',
+    'html',
   },
   handlers = {
     function(server_name)
         require('lspconfig')[server_name].setup({})
-    end,
-    ['tsserver'] = function()
-        local format = {
-            semicolons = 'insert';
-        }
-
-        require('lspconfig')['tsserver'].setup({
-            settings = {
-                javascript = {
-                    format = format,
-                },
-                typescript = {
-                    format = format,
-                }
-            }
-        })
     end,
   },
 })
