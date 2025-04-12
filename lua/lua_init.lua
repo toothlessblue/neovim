@@ -6,6 +6,9 @@ require('treesitter_init')
 require('lsp')
 require('nvim_tree')
 require('quick_fix')
+require('java')
+require('lua_dap')
+require('lua_ibl')
 
 vim.opt.number = true
 vim.opt.relativenumber = true

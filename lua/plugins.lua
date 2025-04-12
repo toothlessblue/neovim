@@ -98,4 +98,42 @@ return require('packer').startup(function(use)
             })
         end,
     })
+    use({
+        "aznhe21/actions-preview.nvim",
+        config = function()
+            vim.keymap.set({ "v", "n" }, "<leader>a", require("actions-preview").code_actions)
+        end,
+    })
+    use {
+        'altermo/ultimate-autopair.nvim',
+        event = { 'InsertEnter', 'CmdlineEnter' },
+        branch = 'v0.6', --recommended as each new version will have breaking changes
+        config = function()
+            require('ultimate-autopair').setup({
+                --Config goes here
+            })
+        end,
+    }
+    use {
+        'mfussenegger/nvim-jdtls'
+    }
+    use {
+        'mfussenegger/nvim-dap',
+    }
+    use {
+        'rcarriga/nvim-dap-ui',
+        requires = {
+            'mfussenegger/nvim-dap',
+            'nvim-neotest/nvim-nio'
+        }
+    }
+    use {
+        'theHamsta/nvim-dap-virtual-text',
+        config = function()
+            require("nvim-dap-virtual-text").setup()
+        end
+    }
+    use {
+        "lukas-reineke/indent-blankline.nvim"
+    }
 end)

@@ -1,3 +1,5 @@
+local lspconfig = require('lspconfig')
+
 local lsp = require('lsp-zero').preset({
     manage_nvim_cmp = {
         set_sources = 'lsp',
@@ -11,16 +13,16 @@ local lsp = require('lsp-zero').preset({
 })
 
 lsp.on_attach(function(client, bufnr)
-  -- see :help lsp-zero-keybindings
-  -- to learn the available actions
-  lsp.default_keymaps({buffer = bufnr})
+    -- see :help lsp-zero-keybindings
+    -- to learn the available actions
+    lsp.default_keymaps({ buffer = bufnr })
 end)
 
 lsp.set_sign_icons({
-  error = '✘',
-  warn = '▲',
-  hint = '⚑',
-  info = '»'
+    error = '✘',
+    warn = '▲',
+    hint = '⚑',
+    info = '»'
 })
 
 lsp.format_on_save({
@@ -30,9 +32,9 @@ lsp.format_on_save({
         insertFinalNewline = true,
     },
     servers = {
-        ['glsl_analyzer'] = {'frag', 'vert'},
-        ['clangd'] = {'cpp', 'hpp'},
-        ['tsserver'] = {'javascript', 'typescript'}
+        ['glsl_analyzer'] = { 'frag', 'vert' },
+        ['clangd'] = { 'cpp', 'hpp' },
+        ['tsserver'] = { 'javascript', 'typescript' }
     }
 })
 
@@ -40,19 +42,32 @@ lsp.setup()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {
-    'glsl_analyzer',
-    'ts_ls',
-    'clangd',
-    'lua_ls',
-    'cssls',
-    'jsonls',
-    'custom_elements_ls',
-    'html',
-  },
-  handlers = {
-    function(server_name)
-        require('lspconfig')[server_name].setup({})
-    end,
-  },
+    ensure_installed = {
+        'glsl_analyzer',
+        'ts_ls',
+        'clangd',
+        'lua_ls',
+        'cssls',
+        'jsonls',
+        'custom_elements_ls',
+        'html',
+        'jdtls'
+    },
+    handlers = {
+        function(server_name)
+            lspconfig[server_name].setup({})
+        end,
+        ["jdtls"] = function() end,
+        ["lua_ls"] = function()
+            lspconfig.lua_ls.setup {
+                settings = {
+                    Lua = {
+                        diagnostics = {
+                            globals = { "vim" }
+                        }
+                    }
+                }
+            }
+        end,
+    },
 })
