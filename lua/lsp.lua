@@ -49,7 +49,6 @@ require('mason-lspconfig').setup({
         'lua_ls',
         'cssls',
         'jsonls',
-        'custom_elements_ls',
         'html',
         'jdtls'
     },
